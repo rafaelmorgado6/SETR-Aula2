@@ -1,11 +1,11 @@
 #include <stdio.h>
-//#include "enerconsumption.h"
+#include "enerconsumption.h"
 
 int main(void) {
     
     printf(" - == === Testing initialization === == -\n");
-    //enerconsumption.ecInit();
-    printf("    -> OK\n");
+    ecInit();
+    printf("    -> OK\n\n");
     
     printf(" - == === Testing adding values === == -\n");
 
@@ -15,14 +15,15 @@ int main(void) {
     int arrLen = sizeof(valuesToAdd) / sizeof(valuesToAdd[0]);
 
     for (int i = 0; i < arrLen; i++) {
-        printf("    -> Adding value %d: %.2f\n", i, valuesToAdd[i]);
-        //enerconsumption.ecAdd(valuesToAdd[i]);
+        ecAdd(valuesToAdd[i]);
     }
-    printf("    -> OK\n");
+
+    printf("    -> OK\n\n");
     
     printf(" - == === Testing sum calculations === == -\n");
-    //enerconsumption.dtSum();
-    printf("    -> OK\n");
+    float peak, dailyValue, dailyCost;
+    dtSum(&peak, &dailyValue, &dailyCost);
+    printf("    -> OK\n\n");
 
 
     return 0;
